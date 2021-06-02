@@ -12,7 +12,7 @@ The following steps show how to build the Docker image from the Dockerfile.
 **1.1** Download and decompress the `wago_codesys_edge_gateway` package.  It is advised that you configure the Docker engine to mount to the SD card.  In a terminal run:
 ```  
 cd /media/docker 
-wget https://github.com/jessejamescox/wago_codesys_edge_gateway/archive/refs/heads/main.zip && unzip https://github.com/jessejamescox/wago_codesys_edge_gateway/archive/refs/heads/main.zip.zip && rm https://github.com/jessejamescox/wago_codesys_edge_gateway/archive/refs/heads/main.zip
+wget https://github.com/jessejamescox/wago_codesys_edge_gateway/archive/refs/heads/main.zip && unzip https://github.com/jessejamescox/wago_codesys_edge_gateway/archive/refs/heads/main.zip && rm https://github.com/jessejamescox/wago_codesys_edge_gateway/archive/refs/heads/main.zip
 ```  
   
 **1.2** Next, build the Docker image: 
