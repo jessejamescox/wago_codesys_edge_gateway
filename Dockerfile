@@ -31,7 +31,7 @@ ARG EDGE_VERSION=4.0.1.0
 COPY codesysedge_edgearmhf_${EDGE_VERSION}_armhf.deb .
 
 # updte and upgrade the apt sources list
-RUN apt update && apt upgrade
+RUN apt update && apt upgrade -y
 
 # change permissions and install the deb package
 RUN chmod 650 codesysedge_edgearmhf_${EDGE_VERSION}_armhf.deb && \
