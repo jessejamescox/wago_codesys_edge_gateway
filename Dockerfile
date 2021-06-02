@@ -43,6 +43,6 @@ COPY Gateway.cfg /etc/Gateway.cfg
 
 # Entrypoint script to install and run Greengrass
 COPY "gateway-entrypoint.sh" /
-RUN chmod 650 gateway-entrypoint.sh
+RUN chmod 650 gateway-entrypoint.sh && rm /codesysedge_edgearmhf_${EDGE_VERSION}_armhf.deb
 
-ENTRYPOINT ["./gateway-entrypoint.sh"]
+ENTRYPOINT ["/gateway-entrypoint.sh"]
