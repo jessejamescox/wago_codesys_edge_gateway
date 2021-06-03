@@ -26,17 +26,16 @@ FROM debian:stable-slim
 LABEL maintainer="Jesse Cox - WAGO Corp. USA"
 ARG EDGE_VERSION=4.0.1.0
 
-
 # Replace the args to lock to a specific version
-COPY codesysedge_edgearmhf_${EDGE_VERSION}_armhf.deb .
+COPY codesysedge_edgearmhf_${EDGE_VERSION}_armhf.deb /codesysedge
 
 # updte and upgrade the apt sources list
 RUN apt update && apt upgrade -y
 
 # change permissions and install the deb package
-RUN chmod 650 codesysedge_edgearmhf_${EDGE_VERSION}_armhf.deb && \
+RUN chmod 777 codesysedge_edgearmhf_${EDGE_VERSION}_armhf.deb && \
+    chown _apt:root codesysedge_edgearmhf_${EDGE_VERSION}_armhf.deb && \
     apt install ./codesysedge_edgearmhf_${EDGE_VERSION}_armhf.deb && \
-    chmod 650 /etc/init.d/codesysedge 
 
 # replace the config file
 COPY Gateway.cfg /etc/Gateway.cfg
@@ -45,4 +44,4 @@ COPY Gateway.cfg /etc/Gateway.cfg
 COPY "gateway-entrypoint.sh" /
 RUN chmod 650 gateway-entrypoint.sh && rm /codesysedge_edgearmhf_${EDGE_VERSION}_armhf.deb
 
-ENTRYPOINT ["/gateway-entrypoint.sh"]
+ENTRYPOINT ["/etc/init.d/codesysedge restart"]
