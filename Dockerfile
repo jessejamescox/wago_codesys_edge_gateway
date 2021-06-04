@@ -22,4 +22,4 @@ RUN ln -s /etc/init.d/codesysedge /bin/codesysedge
 
 # restart the codesysedge to invoke the Maintenance mode
 # and keep alive forever
-CMD codesysedge restart && sleep infinity 
+CMD codesysedge restart && sleep infinity
